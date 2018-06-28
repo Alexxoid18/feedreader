@@ -81,7 +81,6 @@ $(function() {
             
         });
         
-   
     });      
 
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -92,11 +91,47 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-
+    describe('Initial Entries', function() {
+    	
+    	beforeEach(function(done) {
+			for (let i = 0; i < allFeeds.length; i++) {
+			    loadFeed(i, done);
+            }
+		});	
+	
+	    it('loadFeed function test', function(done) {
+	    	let content = $('.feed a.entry-link article.entry').html();
+       		//console.log(content);
+            expect(content).not.toBe('');
+            done();
+        });
+    });     
     /* TODO: Write a new test suite named "New Feed Selection" */
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+
+ 	describe('New Feed Selection', function() {
+ 		
+  		beforeEach(function(done) {
+ 			loadFeed(0, done);
+         	loadFeed(1, done);
+        });
+		
+
+		it('content actually changes', function(done) {
+			
+			let firstArticleContent = $('.feed a.entry-link:nth-child(1) article.entry').html();
+			//console.log(firstArticleContent);
+			let secondArticleContent = $('.feed a.entry-link:nth-child(2) article.entry').html();
+			//console.log(secondArticleContent);
+            expect(firstArticleContent).not.toBe(secondArticleContent);
+            done();
+        });
+
+ 	});
+
 }());
