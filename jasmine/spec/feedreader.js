@@ -51,9 +51,9 @@ $(function() {
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
         const body = $('body');
-        const bodyHasClass = body.hasClass('menu-hidden');
-       // const menu = $('a.menu-icon-link');
-        const menu = document.querySelector('a.menu-icon-link');
+        const menu = $('a.menu-icon-link');
+        let bodyHasClass = body.hasClass('menu-hidden'); 
+        
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -71,16 +71,25 @@ $(function() {
                 
         it('menu changes visibility', function() {
            
+            if (menu.click()) {
+                body.removeClass('menu-hidden');
+                bodyHasClass = body.hasClass('menu-hidden'); 
+                // console.log(bodyHasClass);
+            }
+           
             menu.click();
-            body.removeClass('menu-hidden');
             expect(bodyHasClass).toBe(false);
             
+            if (menu.click()) {
+                body.addClass('menu-hidden');
+                bodyHasClass = body.hasClass('menu-hidden'); 
+                //console.log(bodyHasClass);
+           }
+
             menu.click();
-            body.addClass('menu-hidden');
             expect(bodyHasClass).toBe(true);
-            
+                                
         });
-        
     });      
 
     /* TODO: Write a new test suite named "Initial Entries" */
