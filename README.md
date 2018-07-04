@@ -6,6 +6,9 @@ This project is a web-based application that reads RSS feeds. It's includes [Jas
 
 Testing is an important part of the development process and many organizations practice a standard of development known as "test-driven development". This is when developers write tests first, before they ever start developing their application. 
 
+## How to start?
+
+To start this project you should open index.html file in your browser. If all specs are green and there is no failures - all tests are passing. Otherwise current code needs changes.
 
 ## Detailed description of this project
 
