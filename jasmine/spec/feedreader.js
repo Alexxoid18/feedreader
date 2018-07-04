@@ -49,14 +49,13 @@ $(function() {
     /* Test suite named "The menu" */
     describe('The menu', function() {
         const body = $('body');
-        const menu = $('a.menu-icon-link');
-        let bodyHasClass = body.hasClass('menu-hidden'); 
-        
+        const menu = $('.menu-icon-link');
+                
         /* This test ensures the menu element is
          * hidden by default. 
          */
         it('menu element is hidden by default', function() {
-            expect(bodyHasClass).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true);
         }); 
 
          /* This test ensures the menu changes
@@ -66,24 +65,13 @@ $(function() {
           */
                 
         it('menu changes visibility', function() {
-           
-            if (menu.click()) {
-                body.removeClass('menu-hidden');
-                bodyHasClass = body.hasClass('menu-hidden'); 
-                // console.log(bodyHasClass);
-            }
-           
+                                 
             menu.click();
-            expect(bodyHasClass).toBe(false);
+            expect(body.hasClass('menu-hidden')).toBe(false);
             
-            if (menu.click()) {
-                body.addClass('menu-hidden');
-                bodyHasClass = body.hasClass('menu-hidden'); 
-                //console.log(bodyHasClass);
-           }
-
+           
             menu.click();
-            expect(bodyHasClass).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true);
                                 
         });
     });      
