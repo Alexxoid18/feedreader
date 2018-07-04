@@ -30,6 +30,7 @@ $(function() {
                 let feed = allFeeds[i];
                 expect(feed.url).toBeDefined();
                 expect(feed.url).not.toBe(0);
+                expect(feed.url.length).not.toBe(0);
             }    
         });
         /* This test loops through each feed
@@ -41,6 +42,7 @@ $(function() {
                 let feed = allFeeds[i];
                 expect(feed.name).toBeDefined();
                 expect(feed.name).not.toBe(0);
+                expect(feed.name.length).toBeGreaterThan(0);
             }    
         });
     });
